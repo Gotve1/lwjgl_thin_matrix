@@ -1,4 +1,4 @@
-package org.example;
+package org.example.render;
 
 public class RawModel {
 

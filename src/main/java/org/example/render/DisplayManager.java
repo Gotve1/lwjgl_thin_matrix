@@ -1,10 +1,8 @@
-package org.example;
+package org.example.render;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.*;
 import org.lwjgl.opengl.DisplayMode;
-
-import java.awt.*;
 
 public class DisplayManager {
 

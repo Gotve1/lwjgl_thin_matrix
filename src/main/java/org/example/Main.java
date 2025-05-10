@@ -1,5 +1,10 @@
 package org.example;
 
+import org.example.render.DisplayManager;
+import org.example.render.Loader;
+import org.example.render.RawModel;
+import org.example.render.Render;
+import org.example.shaders.StaticShader;
 import org.lwjgl.opengl.Display;
 
 public class Main {
@@ -8,6 +13,7 @@ public class Main {
         DisplayManager.createDisplay();
         Loader loader = new Loader();
         Render render = new Render();
+        StaticShader shader = new StaticShader();
 
         float[] vertices = {
                  // First triangle X, Y, Z
@@ -26,12 +32,15 @@ public class Main {
 
         while (!Display.isCloseRequested()) {
             render.init();
+            shader.start();
 
             render.render(model);
 
+            shader.stop();
             DisplayManager.updateDisplay();
         }
 
+        shader.clean();
         loader.clean();
         DisplayManager.closeDisplay();
 
